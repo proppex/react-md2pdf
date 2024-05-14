@@ -1,11 +1,6 @@
 "use client";
 import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
-import { JSX } from "react";
 import Markdown from "@proppex/react-md2pdf";
-
-import { pdfjs } from "react-pdf";
-
-// pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker";
 
 import dynamic from "next/dynamic";
 
@@ -48,7 +43,7 @@ This has a *bold* word.
 const MarkdownDocument = () => (
   <Document>
     <Page size="A4" style={styles.page}>
-      <Markdown message={markdownText} />
+      <Markdown md={markdownText} />
     </Page>
   </Document>
 );
