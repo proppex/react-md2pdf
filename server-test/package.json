@@ -1,0 +1,31 @@
+{
+  "name": "react-pdf-renderer-test",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@react-pdf/renderer": "^3.4.4",
+    "@proppex/react-md2pdf": "file:../dist",
+    "next": "^14.2.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-pdf": "^7.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "copy-webpack-plugin": "^12.0.2",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.0",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  }
+}

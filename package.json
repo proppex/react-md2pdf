@@ -1,0 +1,45 @@
+{
+  "name": "@proppex/react-md2pdf",
+  "version": "0.1.0",
+  "description": "We are creating a react module to parse a Markdown formatted text into PDF using the react-pdf library.",
+  "keywords": [
+    "markdown",
+    "pdf",
+    "react",
+    "react-pdf"
+  ],
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Marcos Garcia",
+    "email": "marcos@proppex.com"
+  },
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "@react-pdf/renderer": "3.4.4",
+    "react": "18",
+    "react-dom": "18",
+    "unicode-trie": "^2.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/node": "^20.12.10",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/unist": "3.0.2",
+    "@types/mdast": "4.0.3",
+    "rollup": "^4.17.2",
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "remark": "^15.0.1",
+    "remark-parse": "^11.0.0"
+  }
+}

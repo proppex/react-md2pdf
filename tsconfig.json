@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "outDir": "./dist/",
+    // "outDir": "./output/ts",
+    "lib": ["es2017", "dom"],
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "es2022",
+    "target": "es2017",
+    "jsx": "react"
+  },
+  "include": ["./src/**/*", "./node_modules/yoga-layout/**/*.ts"]
+}
