@@ -2,7 +2,6 @@
   "compilerOptions": {
     "moduleResolution": "node",
     "outDir": "./dist/",
-    // "outDir": "./output/ts",
     "lib": ["es2017", "dom"],
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
