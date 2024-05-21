@@ -11,7 +11,6 @@ describe("markdownToReactPDF", () => {
 Paragraph
     `;
     const result = markdownToReactPDF(markdown);
-
     expect(result).toMatchSnapshot();
   });
 
