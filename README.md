@@ -1,4 +1,4 @@
-# md2pdf
+# react-md2pdf
 
 We are creating a react module to parse a Markdown formatted text into PDF using the [react-pdf](https://react-pdf.org/) library.
 
@@ -53,3 +53,17 @@ To test the development of the library:
 The server has the dependency to the lib as a folder link, which means that it
 will get any modification without the need to restart the server.
 Nonetheless, any changes to the library will require to refresh the page.
+
+## Licensing
+
+This project includes code from [react-pdf library](https://github.com/diegomura/react-pdf) in the form of a dependency, which is licensed under the MIT License. The MIT License from this library can be found in the [`LICENSE.MIT`](LICENSE.MIT) file and in the [original project](https://github.com/diegomura/react-pdf/blob/master/LICENSE).
+
+The extensions and additional code in this project are licensed under the Apache License 2.0. The full text of the Apache License can be found in the [`LICENSE`](LICENSE) file.
+
+### Original MIT Library License
+
+[`LICENSE.MIT`](LICENSE.MIT)
+
+### Apache License 2.0
+
+[`LICENSE`](LICENSE)

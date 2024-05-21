@@ -1,6 +1,6 @@
 {
   "name": "@proppex/react-md2pdf",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "We are creating a react module to parse a Markdown formatted text into PDF using the react-pdf library.",
   "author": {
     "name": "Marcos Garcia",
@@ -17,11 +17,12 @@
     "type": "git",
     "url": "git@github.com:proppex/react-md2pdf.git"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "build": "rollup -c",
+    "prepublish": "npm run build",
     "test": "jest"
   },
   "peerDependencies": {
