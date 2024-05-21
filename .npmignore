@@ -1,2 +1,4 @@
 src/
 server-test/
+.github/
+node_modules/

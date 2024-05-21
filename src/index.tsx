@@ -5,7 +5,7 @@ import markdownToReactPDF from "./markdownToReactPDF";
 
 interface Props extends ViewProps {
   md: string;
-  styles: Styles;
+  styles?: Styles;
 }
 
 /**
@@ -14,6 +14,6 @@ interface Props extends ViewProps {
  * @param props - The component props.
  * @returns The rendered React PDF component.
  */
-export default function Markdown(props: Props) {
+export function Markdown(props: Props) {
   return <View>{markdownToReactPDF(props.md)}</View>;
 }

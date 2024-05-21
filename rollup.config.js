@@ -22,6 +22,17 @@ export default {
       compact: true,
     },
   ],
-  plugins: [nodeResolve(), commonjs(), json(), typescript()],
-  external: ["react", "react-dom", "@react-pdf/renderer", "styled-components"],
+  plugins: [
+    nodeResolve(),
+    commonjs(),
+    json(),
+    typescript({ declaration: true, declarationDir: "dist/types" }),
+  ],
+  external: [
+    "react",
+    "react-dom",
+    "@react-pdf/renderer",
+    "styled-components",
+    "yoga-layout",
+  ],
 };

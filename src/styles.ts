@@ -1,27 +1,27 @@
 import { StyleSheet } from "@react-pdf/renderer";
 
-export const fontMain = 12;
-export const interline = 10;
-export const styles = StyleSheet.create({
+export const defaultFontMain = 12;
+export const defaultInterline = 10;
+export const defaultStyles = StyleSheet.create({
   header_1: {
     fontSize: 20,
-    marginBottom: interline * 1.5,
+    marginBottom: defaultInterline * 1.5,
   },
   header_2: {
     fontSize: 16,
-    marginBottom: interline * 1.2,
+    marginBottom: defaultInterline * 1.2,
   },
   header_3: {
     fontSize: 14,
-    marginBottom: interline,
+    marginBottom: defaultInterline,
   },
   paragraph: {
-    fontSize: fontMain,
+    fontSize: defaultFontMain,
     fontFamily: "Times-Roman",
-    marginBottom: interline,
+    marginBottom: defaultInterline,
   },
   strong: {
-    fontSize: fontMain,
+    fontSize: defaultFontMain,
     textDecoration: "underline",
   },
   imageCompanyLogo: {

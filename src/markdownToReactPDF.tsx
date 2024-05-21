@@ -5,10 +5,14 @@ import { remark } from "remark";
 import parse from "remark-parse";
 import * as md from "mdast";
 
-import { styles } from "./styles";
+import { defaultStyles } from "./styles";
 import htmlToReactPDF from "./htmlToReactPDF";
 
-export default function markdownToReactPDF(markdown: string) {
+export default function markdownToReactPDF(
+  markdown: string,
+  customStyles?: Style
+) {
+  const styles = { ...defaultStyles, ...customStyles };
   const isRoot = (node: md.Node): node is md.Root =>
     (node as md.Root).children !== undefined &&
     (node as md.Root).type === "root";

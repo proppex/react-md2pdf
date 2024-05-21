@@ -1,16 +1,17 @@
-import { Text, View, Image, StyleSheet } from "@react-pdf/renderer";
+import { Text, View, Image } from "@react-pdf/renderer";
 import { Style } from "@react-pdf/types";
 import DOMPurify from "dompurify";
 import React from "react";
 import { rehype } from "rehype";
 import parse from "rehype-parse";
 import * as html from "hast";
-import { styles } from "./styles";
+import { defaultStyles } from "./styles";
 
 export default function htmlToReactPDF(
   html: string,
-  style?: Style
+  customStyles?: Style
 ): JSX.Element {
+  const styles = { ...defaultStyles, ...customStyles };
   const isRoot = (node: html.Node): node is html.Root =>
     (node as html.Root).children !== undefined &&
     (node as html.Root).type === "root";
