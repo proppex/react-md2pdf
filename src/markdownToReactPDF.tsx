@@ -27,6 +27,9 @@ export default function markdownToReactPDF(
   const isEmphasis = (node: md.Node): node is md.Emphasis =>
     (node as md.Emphasis).type === "emphasis";
 
+  const isBold = (node: md.Node): node is md.Strong =>
+    (node as md.Strong).type === "strong";
+
   const isHtml = (node: md.Node): node is md.Html =>
     (node as md.Html).type === "html";
 
@@ -86,6 +89,14 @@ export default function markdownToReactPDF(
     </Text>
   );
 
+  const processBold = (node: md.Strong, style?: Style): JSX.Element => (
+    <Text key={node.position?.start.offset}>
+      {node.children.map((child) =>
+        processNode(child, { ...styles.bold, ...style })
+      )}
+    </Text>
+  );
+
   const processLiteral = (node: md.Literal, style?: Style): JSX.Element => (
     <Text key={node.position?.start.offset} style={style}>
       {node.value}
@@ -107,6 +118,7 @@ export default function markdownToReactPDF(
     if (isParagraph(node)) return processParagraph(node, style);
     if (isHtml(node)) return processHtml(node, style);
     if (isEmphasis(node)) return processEmphasis(node, style);
+    if (isBold(node)) return processBold(node, style);
 
     if (isLiteral(node)) return processLiteral(node, style);
     if (isImage(node)) return processImage(node, style);

@@ -1,6 +1,6 @@
 "use client";
 import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
-import Markdown from "@proppex/react-md2pdf";
+import { Markdown } from "@proppex/react-md2pdf";
 
 import dynamic from "next/dynamic";
 

@@ -24,6 +24,9 @@ export const defaultStyles = StyleSheet.create({
     fontSize: defaultFontMain,
     textDecoration: "underline",
   },
+  bold: {
+    color: "red",
+  },
   imageCompanyLogo: {
     width: 23,
     height: 23,
