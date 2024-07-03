@@ -101,7 +101,7 @@ export default function markdownToReactPDF(
   );
 
   const processNode = (node: md.Node, style?: Style): JSX.Element => {
-    // console.log(node);
+    console.log("markdown node", node);
     if (isRoot(node)) return processRoot(node);
     if (isHeading(node)) return processHeading(node, style);
     if (isParagraph(node)) return processParagraph(node, style);
