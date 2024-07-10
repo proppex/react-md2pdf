@@ -17,14 +17,12 @@ export const defaultStyles = StyleSheet.create({
   },
   paragraph: {
     fontSize: defaultFontMain,
-    fontFamily: "Nunito Sans",
     marginBottom: defaultInterline,
   },
   strong: {
     textDecoration: "underline",
   },
   bold: {
-    fontFamily: "Nunito Sans",
     fontWeight: 700,
     fontStyle: "bold",
   },
