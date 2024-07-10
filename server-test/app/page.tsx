@@ -1,5 +1,5 @@
 "use client";
-import { Document, Page, StyleSheet } from "@react-pdf/renderer";
+import { Document, Page, StyleSheet, Font } from "@react-pdf/renderer";
 import { Markdown } from "@proppex/react-md2pdf";
 
 import dynamic from "next/dynamic";
@@ -12,10 +12,24 @@ const PDFViewer = dynamic(
   }
 );
 
+Font.register({
+  family: "Nunito Sans",
+  fonts: [
+    {
+      src: "/NunitoSansRegular.ttf",
+    },
+    {
+      src: "/NunitoSansBold.ttf",
+      fontWeight: 700,
+      fontStyle: "bold",
+    },
+  ],
+});
+
 // Create styles
 const styles = StyleSheet.create({
   page: {
-    fontFamily: "Times-Roman",
+    fontFamily: "Nunito Sans",
   },
   section: {
     margin: 10,
@@ -29,7 +43,7 @@ const styles = StyleSheet.create({
 const markdownText = `
 # This is a header
 
-![Image](http://localhost:3001/image.png)
+![Image](http://localhost:3000/image.png)
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget molestie nunc. Morbi ex nunc, accumsan sed tortor eget, iaculis sodales augue. Integer in augue metus. Donec at finibus dui. Vestibulum non elit pellentesque magna tempor sagittis. Aliquam mattis finibus nunc, sed scelerisque massa pretium eu. Sed eget lorem ac nisi scelerisque hendrerit. Aenean pretium consectetur arcu. Duis et varius felis, ut maximus massa. Aenean aliquam nibh vitae imperdiet rhoncus. Quisque ornare velit vehicula, ultricies urna non, dictum ante. Etiam posuere luctus erat nec tristique. Integer sagittis, lacus et auctor molestie, ante neque eleifend sapien, a maximus velit est imperdiet nisi. Curabitur non placerat risus. Aenean et leo nunc.
 
@@ -37,7 +51,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget molestie nun
 
 This has a *emphasis* word.
 
-<b>This is all underlined.</b>
+<u>This is all underlined.</u> (ONLY WORKS IF SURROUNDED BY P TAG)
 
 This has a **strong** word. (NOT WORKING)
 
@@ -57,70 +71,7 @@ Markdown *emphasis* word (expectedly not translated to italic).
 `;
 
 const pureHtmlText = `
-<div>
-<h1 class="PlaygroundEditorTheme__h1" dir="ltr">
-  <span style="white-space: pre-wrap;">Welcome to the playground</span>
-</h1>
-<blockquote class="PlaygroundEditorTheme__quote" dir="ltr">
-  <span style="white-space: pre-wrap;">In case you were wondering what the black box at the bottom is – it's the debug view, showing the current state of the editor. You can disable it by pressing on the settings control in the bottom-left of your screen and toggling the debug view setting.</span>
-</blockquote>
-<p class="PlaygroundEditorTheme__paragraph" dir="ltr">
-  <s>
-    <span class="PlaygroundEditorTheme__textStrikethrough" style="white-space: pre-wrap;">The playground is a demo environment built with @lexical/react. Try typing in some text with different formats.</span>
-  </s>
-</p>
-<p class="PlaygroundEditorTheme__paragraph" dir="ltr">
-  <s>
-    <span class="PlaygroundEditorTheme__textStrikethrough" style="white-space: pre-wrap;">Make sure to check out the various plugins in the toolbar. You can also use </span>
-  </s>
-  <s>
-    <span class="PlaygroundEditorTheme__textStrikethrough PlaygroundEditorTheme__hashtag" style="white-space: pre-wrap;">#hashtags</span>
-  </s>
-  <s>
-    <span class="PlaygroundEditorTheme__textStrikethrough" style="white-space: pre-wrap;"> or @-mentions too!</span>
-  </s>
-</p>
-<p class="PlaygroundEditorTheme__paragraph" dir="ltr">
-  <s>
-    <span class="PlaygroundEditorTheme__textStrikethrough" style="white-space: pre-wrap;">If you'd like to find out more about Lexical, you can:</span>
-  </s>
-</p>
-<ul class="PlaygroundEditorTheme__ul">
-  <li value="1" class="PlaygroundEditorTheme__listItem">
-    <span style="white-space: pre-wrap;">test</span>
-  </li>
-  <li value="2" class="PlaygroundEditorTheme__listItem">
-    <span style="white-space: pre-wrap;">Visit the </span>
-    <a href="https://lexical.dev/" class="PlaygroundEditorTheme__link">
-      <span style="white-space: pre-wrap;">Lexical website</span>
-    </a>
-    <span style="white-space: pre-wrap;"> for documentation and more information.</span>
-  </li>
-  <li value="3" class="PlaygroundEditorTheme__listItem">
-    <span style="white-space: pre-wrap;">Check out the code on our </span>
-    <a href="https://github.com/facebook/lexical" class="PlaygroundEditorTheme__link">
-      <span style="white-space: pre-wrap;">GitHub repository</span>
-    </a>
-    <span style="white-space: pre-wrap;">.</span>
-  </li>
-  <li value="4" class="PlaygroundEditorTheme__listItem">
-    <span style="white-space: pre-wrap;">Playground code can be found </span>
-    <a href="https://github.com/facebook/lexical/tree/main/packages/lexical-playground" class="PlaygroundEditorTheme__link">
-      <span style="white-space: pre-wrap;">here</span>
-    </a>
-    <span style="white-space: pre-wrap;">.</span>
-  </li>
-  <li value="5" class="PlaygroundEditorTheme__listItem">
-    <span style="white-space: pre-wrap;">Join our </span>
-    <a href="https://discord.com/invite/KmG4wQnnD9" class="PlaygroundEditorTheme__link">
-      <span style="white-space: pre-wrap;">Discord Server</span>
-    </a>
-    <span style="white-space: pre-wrap;"> and chat with the team.</span>
-  </li>
-</ul>
-<p class="PlaygroundEditorTheme__paragraph" dir="ltr">
-  <span style="white-space: pre-wrap;">Lastly, we're constantly adding cool new features to this playground. So make sure you check back here when you next get a chance 🙂.</span>
-</p></div>`;
+<p class="PlaygroundEditorTheme__paragraph" dir="ltr"><span style="white-space: pre-wrap;">Greg’s career began in manufacturing. </span></p><p class="PlaygroundEditorTheme__paragraph" dir="ltr"><br></p><p class="PlaygroundEditorTheme__paragraph" dir="ltr"><u><span class="PlaygroundEditorTheme__textUnderline" style="white-space: pre-wrap;">{{Tenant_First_Name}}{{Tenant_Last_Name}} </span></u></p><p class="PlaygroundEditorTheme__paragraph" dir="ltr"><br></p><p class="PlaygroundEditorTheme__paragraph" dir="ltr"><span style="white-space: pre-wrap;">The </span><b><strong class="PlaygroundEditorTheme__textBold" style="white-space: pre-wrap;">company</strong></b><span style="white-space: pre-wrap;"> he started with focused on using lean manufacturing techniques. Lean manufacturing focuses on eliminating waste and improving process flow when building a product. </span></p><p class="PlaygroundEditorTheme__paragraph" dir="ltr"><br></p><p class="PlaygroundEditorTheme__paragraph" dir="ltr"><span style="white-space: pre-wrap;">One of the people who influenced the creation of lean manufacturing was W. Edwards Deming, a noted statistician and manufacturing consultant. In his book Out of the Crisis, Deming out- lines 14 points for management. One of those points appears at the beginning of this chapter and has resonated with Greg his entire career. Building quality into the product sounds clichéd and has been overused by many marketing departments. But in an agile environment, the concept is real and tangi-ble. Consider the following. {{Tenant_ID_No}} {{Tenant_Email}}</span></p>`;
 
 const MarkdownDocument = () => (
   <Document>
