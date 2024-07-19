@@ -37,6 +37,29 @@ export default function htmlToReactPDF(
     );
   };
 
+  const processUnderline = (node: html.Element): JSX.Element => {
+    const css = css2JSON(node.properties?.style as string | undefined);
+    const underlineStyle = styles.strong;
+    return (
+      <View
+        key={node.position?.start.offset}
+        style={{ ...underlineStyle, ...css }}
+      >
+        {node.children.map((child) => processNode(child))}
+      </View>
+    );
+  };
+
+  const processBold = (node: html.Element): JSX.Element => {
+    const css = css2JSON(node.properties?.style as string | undefined);
+    const boldStyle = styles.bold;
+    return (
+      <View key={node.position?.start.offset} style={{ ...boldStyle, ...css }}>
+        {node.children.map((child) => processNode(child))}
+      </View>
+    );
+  };
+
   const processHeader = (node: html.Element): JSX.Element => {
     const headerStyle =
       node.tagName === "h1"
@@ -67,12 +90,13 @@ export default function htmlToReactPDF(
   };
 
   const processElement = (node: html.Element): JSX.Element => {
+    if (node.tagName === "u") return processUnderline(node);
+    if (node.tagName === "b") return processBold(node);
     if (node.tagName === "p") return processParagraph(node);
     if (node.tagName === "h1" || node.tagName === "h2" || node.tagName === "h3")
       return processHeader(node);
     if (node.tagName === "img") return processImage(node);
 
-    console.log("UNPARSED ELEMENT", node.tagName, node.properties?.style, node);
     const css = css2JSON(node.properties?.style as string | undefined);
     return (
       <View key={node.position?.start.offset} style={css}>
@@ -89,7 +113,6 @@ export default function htmlToReactPDF(
     if (isRoot(node)) return processRoot(node);
     if (isElement(node)) return processElement(node);
     if (isText(node)) return processText(node);
-    console.log("UNPARSED NODE", node);
   };
 
   const tree = rehype().use(parse).parse(DOMPurify.sanitize(html));

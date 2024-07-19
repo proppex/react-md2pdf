@@ -1,6 +1,6 @@
 "use client";
-import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
-import Markdown from "@proppex/react-md2pdf";
+import { Document, Page, StyleSheet, Font } from "@react-pdf/renderer";
+import { Markdown } from "@proppex/react-md2pdf";
 
 import dynamic from "next/dynamic";
 
@@ -12,10 +12,24 @@ const PDFViewer = dynamic(
   }
 );
 
+Font.register({
+  family: "Nunito Sans",
+  fonts: [
+    {
+      src: "/NunitoSansRegular.ttf",
+    },
+    {
+      src: "/NunitoSansBold.ttf",
+      fontWeight: 700,
+      fontStyle: "bold",
+    },
+  ],
+});
+
 // Create styles
 const styles = StyleSheet.create({
   page: {
-    fontFamily: "Times-Roman",
+    fontFamily: "Nunito Sans",
   },
   section: {
     margin: 10,
@@ -37,6 +51,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget molestie nun
 
 This has a *emphasis* word.
 
+<u>This is all underlined.</u> (ONLY WORKS IF SURROUNDED BY P TAG)
+
 This has a **strong** word. (NOT WORKING)
 
 <h1>This is an HTML header</h1>
@@ -54,10 +70,13 @@ Markdown *emphasis* word (expectedly not translated to italic).
 </p>
 `;
 
+const pureHtmlText = `
+<p class="PlaygroundEditorTheme__paragraph" dir="ltr"><span style="white-space: pre-wrap;">Greg’s career began in manufacturing. </span></p><p class="PlaygroundEditorTheme__paragraph" dir="ltr"><br></p><p class="PlaygroundEditorTheme__paragraph" dir="ltr"><u><span class="PlaygroundEditorTheme__textUnderline" style="white-space: pre-wrap;">{{Tenant_First_Name}}{{Tenant_Last_Name}} </span></u></p><p class="PlaygroundEditorTheme__paragraph" dir="ltr"><br></p><p class="PlaygroundEditorTheme__paragraph" dir="ltr"><span style="white-space: pre-wrap;">The </span><b><strong class="PlaygroundEditorTheme__textBold" style="white-space: pre-wrap;">company</strong></b><span style="white-space: pre-wrap;"> he started with focused on using lean manufacturing techniques. Lean manufacturing focuses on eliminating waste and improving process flow when building a product. </span></p><p class="PlaygroundEditorTheme__paragraph" dir="ltr"><br></p><p class="PlaygroundEditorTheme__paragraph" dir="ltr"><span style="white-space: pre-wrap;">One of the people who influenced the creation of lean manufacturing was W. Edwards Deming, a noted statistician and manufacturing consultant. In his book Out of the Crisis, Deming out- lines 14 points for management. One of those points appears at the beginning of this chapter and has resonated with Greg his entire career. Building quality into the product sounds clichéd and has been overused by many marketing departments. But in an agile environment, the concept is real and tangi-ble. Consider the following. {{Tenant_ID_No}} {{Tenant_Email}}</span></p>`;
+
 const MarkdownDocument = () => (
   <Document>
     <Page size="A4" style={styles.page}>
-      <Markdown md={markdownText} />
+      <Markdown md={pureHtmlText} />
     </Page>
   </Document>
 );

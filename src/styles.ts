@@ -17,12 +17,14 @@ export const defaultStyles = StyleSheet.create({
   },
   paragraph: {
     fontSize: defaultFontMain,
-    fontFamily: "Times-Roman",
     marginBottom: defaultInterline,
   },
   strong: {
-    fontSize: defaultFontMain,
     textDecoration: "underline",
+  },
+  bold: {
+    fontWeight: 700,
+    fontStyle: "bold",
   },
   imageCompanyLogo: {
     width: 23,
