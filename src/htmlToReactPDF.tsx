@@ -30,6 +30,25 @@ export default function htmlToReactPDF(
 
   const processParagraph = (node: html.Element): JSX.Element => {
     const css = css2JSON(node.properties?.style as string | undefined);
+
+    if (css.textIndent) {
+      css.marginLeft = css.textIndent;
+      delete css.textIndent;
+    }
+
+    const isOnlyBreak =
+      node.children.length === 1 &&
+      isElement(node.children[0]) &&
+      node.children[0].tagName === "br";
+
+    if (isOnlyBreak) {
+      return (
+        <View key={node.position?.start.offset} style={styles.paragraph}>
+          <Text>{"\n"}</Text>
+        </View>
+      );
+    }
+
     return (
       <View key={node.position?.start.offset} style={css}>
         {node.children.map((child) => processNode(child))}
