@@ -50,7 +50,22 @@ export default function htmlToReactPDF(
     }
 
     return (
-      <View key={node.position?.start.offset} style={css}>
+      <View
+        key={node.position?.start.offset}
+        style={{ ...css, fontSize: css.fontSize || styles.paragraph.fontSize }}
+      >
+        {node.children.map((child) => processNode(child))}
+      </View>
+    );
+  };
+
+  const processBody = (node: html.Element): JSX.Element => {
+    const css = css2JSON(node.properties?.style as string | undefined);
+    return (
+      <View
+        key={node.position?.start.offset}
+        style={{ ...styles.body, ...css }}
+      >
         {node.children.map((child) => processNode(child))}
       </View>
     );
@@ -109,6 +124,7 @@ export default function htmlToReactPDF(
   };
 
   const processElement = (node: html.Element): JSX.Element => {
+    if (node.tagName === "body") return processBody(node);
     if (node.tagName === "u") return processUnderline(node);
     if (node.tagName === "b") return processBold(node);
     if (node.tagName === "p") return processParagraph(node);
