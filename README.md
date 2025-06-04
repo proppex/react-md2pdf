@@ -47,7 +47,7 @@ To test the development of the library:
    npm ci
 
    # Second run the server in dev mode
-   num run dev
+   npm run dev
    ```
 
 The server has the dependency to the lib as a folder link, which means that it
