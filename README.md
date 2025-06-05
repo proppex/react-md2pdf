@@ -1,5 +1,6 @@
 # react-md2pdf
-[![build status](https://github.com/proppex/react-md2pdf/actions/workflows/main.yml/badge.svg)](https://github.com/proppex/react-md2pdf/actions/workflows/main.yml) [![coverage status](https://img.shields.io/codecov/c/github/proppex/react-md2pdf)](https://app.codecov.io/gh/proppex/react-md2pdf)
+
+[![build status](https://github.com/proppex/react-md2pdf/actions/workflows/main.yml/badge.svg)](https://github.com/proppex/react-md2pdf/actions/workflows/main.yml) [![coverage status](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/proppex/react-md2pdf/main/.github/badges/coverage.json)](https://raw.githubusercontent.com/proppex/react-md2pdf/main/.github/badges/coverage.json)
 
 We are creating a react module to parse a Markdown formatted text into PDF using the [react-pdf](https://react-pdf.org/) library.
 
