@@ -2,12 +2,15 @@ import type { Config } from "jest";
 
 const config: Config = {
   verbose: true,
-  preset: "ts-jest",
+  preset: "ts-jest/presets/default-esm",
   testEnvironment: "node",
-  transform: {
-    "^.+\\.(j|t)sx?$": "ts-jest",
+  extensionsToTreatAsEsm: [".ts", ".tsx"],
+  transformIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/dist/"] ,
+  globals: {
+    "ts-jest": {
+      useESM: true,
+    },
   },
-  // transformIgnorePatterns: ["<rootDir>/node_modules/"],
 };
 
 export default config;
